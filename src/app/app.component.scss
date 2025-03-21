@@ -1,0 +1,14 @@
+.navbar{
+background:rgba(0, 39, 43, 0.1);
+.fonts{
+    font-family: "Rubik Distressed", system-ui;
+}
+.email-name{
+    font-family: "Bangers", system-ui;
+}
+.container-fluid{
+@media screen and (max-width: 780px) {
+    display: none;
+}
+  }
+}
