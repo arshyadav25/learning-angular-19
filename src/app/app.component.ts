@@ -15,16 +15,16 @@ export class AppComponent implements OnInit {
   constructor(private data: ServiceService) { }
 
   ngOnInit(): void {
-    this.getdata();
-    this.getdata1();
-    this.organizations();
-    this.schedules();
-    this.players();
-    this.leaderboards();
-    this.scorecards();
-    this.points();
-    this.earnings();
-    this.tournaments();
+    // this.getdata();
+    // this.getdata1();
+    // this.organizations();
+    // this.schedules();
+    // this.players();
+    // this.leaderboards();
+    // this.scorecards();
+    // this.points();
+    // this.earnings();
+    // this.tournaments();
 
   }
 

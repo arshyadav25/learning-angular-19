@@ -18,11 +18,11 @@ export class TournamentsComponent {
   constructor(private data: ServiceService) { }
   
   ngOnInit(): void {
-    this.getdata();
-    this.getdata1();
-    this.organizations();
-    this.schedules();
-    this.players();
+    // this.getdata();
+    // this.getdata1();
+    // this.organizations();
+    // this.schedules();
+    // this.players(); 
  
 
   }
@@ -63,6 +63,42 @@ export class TournamentsComponent {
       console.log(this.players_posts )
     });
   }
+  leaderboards() {
+    this.data.leaderboards().subscribe((res) => {
+      this.posts = res;
+      this.filteredposts = [this.posts];
+      console.log(this.posts)
+    });
+  }
+  scorecards() {
+    this.data.scorecards().subscribe((res) => {
+      this.posts = res;
+      this.filteredposts = [this.posts];
+      console.log(this.posts)
+    });
+  }
+  points() {
+    this.data.points().subscribe((res) => {
+      this.posts = res;
+      this.filteredposts = [this.posts];
+      console.log(this.posts)
+    });
+  }
+  earnings() {
+    this.data.earnings().subscribe((res) => {
+      this.posts = res;
+      this.filteredposts = [this.posts];
+      console.log(this.posts)
+    });
+  }
+  tournaments() {
+    this.data.tournaments().subscribe((res) => {
+      this.posts = res;
+      this.filteredposts = [this.posts];
+      console.log(this.posts)
+    });
+  }
+
 
 
 }
