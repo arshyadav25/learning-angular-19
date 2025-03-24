@@ -1,104 +1,40 @@
 import { Component } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tournaments',
   standalone: false,
   templateUrl: './tournaments.component.html',
-  styleUrl: './tournaments.component.scss'
+  styleUrl: './tournaments.component.scss',
 })
 export class TournamentsComponent {
-
   posts: any;
-  filteredposts: any = []
-  FedExCup_posts: any = []
-  organizations_posts: any = []
-  schedules_posts: any = []
-  players_posts : any = []
-  constructor(private data: ServiceService) { }
-  
+  filteredposts: any = [];
+  FedExCup_posts: any = [];
+  organizations_posts: any = [];
+  schedules_posts: any = [];
+  players_posts: any = [];
+  isMschedulesre = false;
+  constructor(private data: ServiceService, private router: Router) {}
+
   ngOnInit(): void {
-    // this.getdata();
-    // this.getdata1();
-    // this.organizations();
-    // this.schedules();
-    // this.players(); 
- 
-
+    this.players();
   }
 
-
-  getdata() {
-    this.data.getlogindetils().subscribe((res) => {
-      this.posts = res;
-      this.filteredposts = [this.posts];
-      console.log(this.posts)
-    });
-  }
-  getdata1() {
-    this.data.FedExCup().subscribe((res) => {
-      this.FedExCup_posts = res;
-      this.filteredposts = [this.FedExCup_posts];
-      console.log(this.FedExCup_posts)
-    });
-  }
-  organizations() {
-    this.data.organizations().subscribe((res) => {
-      this.organizations_posts = res;
-      this.filteredposts = [this.organizations_posts];
-      console.log(this.organizations_posts)
-    });
-  }
-  schedules() {
-    this.data.schedules().subscribe((res) => {
-      this.schedules_posts = res;
-      this.filteredposts = [this.schedules_posts];
-      console.log(this.schedules_posts)
-    });
-  }
   players() {
     this.data.players().subscribe((res) => {
       this.players_posts = res;
-      this.filteredposts = [this.players_posts ];
-      console.log(this.players_posts )
-    });
-  }
-  leaderboards() {
-    this.data.leaderboards().subscribe((res) => {
-      this.posts = res;
-      this.filteredposts = [this.posts];
-      console.log(this.posts)
-    });
-  }
-  scorecards() {
-    this.data.scorecards().subscribe((res) => {
-      this.posts = res;
-      this.filteredposts = [this.posts];
-      console.log(this.posts)
-    });
-  }
-  points() {
-    this.data.points().subscribe((res) => {
-      this.posts = res;
-      this.filteredposts = [this.posts];
-      console.log(this.posts)
-    });
-  }
-  earnings() {
-    this.data.earnings().subscribe((res) => {
-      this.posts = res;
-      this.filteredposts = [this.posts];
-      console.log(this.posts)
-    });
-  }
-  tournaments() {
-    this.data.tournaments().subscribe((res) => {
-      this.posts = res;
-      this.filteredposts = [this.posts];
-      console.log(this.posts)
+      this.filteredposts = [this.players_posts];
+      console.log(this.players_posts);
     });
   }
 
+  dynamicData(type: any) {
+    this.router.navigate(['common'], {
+      queryParams: { type: type },
+    });
 
-
+    console.log(type);
+  }
 }

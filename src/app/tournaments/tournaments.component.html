@@ -15,7 +15,12 @@
     </div>
   </div>
   <div class="container-fluid my-5 px-5">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg justify-content-between">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg justify-content-between flex-lg-row-reverse">
+      <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
+        <img class="rounded-lg-3"
+          src="https://bloximages.newyork1.vip.townnews.com/southernminn.com/content/tncms/assets/v3/editorial/2/20/22079edc-2847-11ef-8cf2-ef0f8b51933a/6478b0ae47f15.image.jpg?resize=1396%2C1244"
+          alt="" width="520" >
+      </div>
       <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Tournaments</h1>
         <p class="lead"> The men do battle at The Masters (April), US PGA Championship (May),
@@ -25,15 +30,10 @@
           Amundi Evian Championship (July)</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
 
-          <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="tournaments()">View
-            mschedulesre</button>
+          <button type="button" class="btn btn-outline-danger btn-lg px-4"  (click)="dynamicData('tournaments')">View mschedulesre</button>
         </div>
       </div>
-      <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
-        <img class="rounded-lg-3"
-          src="https://bloximages.newyork1.vip.townnews.com/southernminn.com/content/tncms/assets/v3/editorial/2/20/22079edc-2847-11ef-8cf2-ef0f8b51933a/6478b0ae47f15.image.jpg?resize=1396%2C1244"
-          alt="" width="520">
-      </div>
+   
     </div>
   </div>
   <section class="match_player">
@@ -55,7 +55,12 @@
   </section>
   <section class="World Ranking">
     <div class="container-fluid my-5 px-5">
-      <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between">
+      <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between ">
+        <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3"
+            src="https://static.toiimg.com/thumb/msid-95890851,width-1280,height-720,resizemode-4/95890851.jpg"
+            alt="" width="520" >
+        </div>
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
           <h1 class="display-4 fw-bold lh-1 text-body-emphasis">World Golf Ranking </h1>
           <p class="lead"> Approximately 55% of golfers break 100. Male golfers tend to have an average handicap of
@@ -63,14 +68,8 @@
             play. Breaking 100 often requires eliminating large errors such as triple bogeys and learning better course
             management.</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-
-            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="getdata()">View more</button>
+            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="dynamicData('getdata')">View more</button>
           </div>
-        </div>
-        <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
-          <img class="rounded-lg-3"
-            src="https://static.toiimg.com/thumb/msid-95890851,width-1280,height-720,resizemode-4/95890851.jpg" alt=""
-            width="520">
         </div>
       </div>
     </div>
@@ -78,11 +77,11 @@
 
   <section class="FedExCup_Ranking">
     <div class="container-fluid my-5 px-5">
-      <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between">
+      <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between flex-lg-row-reverse">
         <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
           <img class="rounded-lg-3"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Uq2P59fIrnWblsCIaAL--CQaIYtPPfRMWg&s" alt=""
-            width="520">
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Uq2P59fIrnWblsCIaAL--CQaIYtPPfRMWg&s"
+            alt="" width="520" >
         </div>
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
           <h1 class="display-4 fw-bold lh-1 text-body-emphasis">FedExCup Ranking </h1>
@@ -90,7 +89,7 @@
             with his FedExCup Starting Strokes will be crowned the FedExCup champion, be credited with an official
             victory at the TOUR Championship, earn a bonus of $25 million and a five-year PGA TOUR exemption.</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="getdata1()">View more</button>
+    <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="dynamicData('getdata1')">View more</button>
           </div>
         </div>
       </div>
@@ -100,6 +99,11 @@
   <section class="schedules">
     <div class="container-fluid my-5 px-5">
       <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between">
+        <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3"
+            src="https://cdn.venngage.com/template/thumbnail/small/e12a906e-2d2c-4f61-9512-f60c456642e9.webp"
+            alt="" width="520" >
+        </div>
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
           <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Schedules </h1>
           <p class="lead"> Approximately 55% of golfers break 100. Male golfers tend to have an average handicap of
@@ -108,13 +112,8 @@
             management.</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
 
-            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="schedules()">View more</button>
+            <button type="button" class="btn btn-outline-danger btn-lg px-4"(click)="dynamicData('schedules')">View more</button>
           </div>
-        </div>
-        <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
-          <img class="rounded-lg-3"
-            src="https://cdn.venngage.com/template/thumbnail/small/e12a906e-2d2c-4f61-9512-f60c456642e9.webp" alt=""
-            width="520">
         </div>
       </div>
     </div>
@@ -122,12 +121,8 @@
 
   <section class="leaderboards">
     <div class="container-fluid my-5 px-5">
-      <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between">
-        <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
-          <img class="rounded-lg-3"
-            src="https://media.istockphoto.com/id/1282170063/vector/golf-scoreboard-vector-illustration-with-golf-ball-on-background.jpg?s=612x612&w=0&k=20&c=t5h8UX5g7nwZa2f63Q1vL53y9a7HyX8iJl0Cx7Hw8MY="
-            alt="" width="520">
-        </div>
+      <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between ">
+  
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
           <h1 class="display-4 fw-bold lh-1 text-body-emphasis">leaderboards </h1>
           <p class="lead">A golf leaderboard offers a more comprehensive overview of the tournament's progress.
@@ -135,8 +130,13 @@
             completed rounds. Additional player information such as names, handicaps, and scores for individual holes.
           </p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="leaderboards()">View more</button>
+            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="dynamicData('leaderboards')">View more</button>
           </div>
+        </div>
+        <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3"
+            src="https://media.istockphoto.com/id/1282170063/vector/golf-scoreboard-vector-illustration-with-golf-ball-on-background.jpg?s=612x612&w=0&k=20&c=t5h8UX5g7nwZa2f63Q1vL53y9a7HyX8iJl0Cx7Hw8MY="
+            alt="" width="520" >
         </div>
       </div>
     </div>
@@ -144,32 +144,35 @@
 
   <section class="scorecards">
     <div class="container-fluid my-5 px-5">
-      <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between">
+      <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between ">
+
+        <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2jxMrnXT_lBraGaB04xPA50uVzwwHhf_-Sg&s"
+            alt="" width="520" >
+        </div>
+
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
           <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Scorecards </h1>
           <p class="lead">The golf scorecard is a fundamental tool for tracking scores during a round. It typically
             lists each hole on the course, along with its assigned par value and the golfer's score for each hole.</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
 
-            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="scorecards()">View more</button>
+            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="dynamicData('scorecards')">View more</button>
           </div>
         </div>
-        <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
-          <img class="rounded-lg-3"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2jxMrnXT_lBraGaB04xPA50uVzwwHhf_-Sg&s" alt=""
-            width="520">
-        </div>
+      
       </div>
     </div>
   </section>
 
   <section class="points">
     <div class="container-fluid my-5 px-5">
-      <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between">
+      <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between flex-lg-row-reverse">
         <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
           <img class="rounded-lg-3"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnUJXlteCd0ON9md7IhkbXhKFbWC84NutL6g&s" alt=""
-            width="520">
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnUJXlteCd0ON9md7IhkbXhKFbWC84NutL6g&s"
+            alt="" width="520" >
         </div>
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
           <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Points </h1>
@@ -178,7 +181,7 @@
             most scoring systems in golf, the player with the most points wins the game.
           </p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="points()">View more</button>
+            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="dynamicData('points')">View more</button>
           </div>
         </div>
       </div>
@@ -188,6 +191,12 @@
   <section class="earnings">
     <div class="container-fluid my-5 px-5">
       <div class="row  pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg justify-content-between ">
+
+            <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpnVqbviG7v8Jv39ES7LRMW0PVdXeW89wyYA&s"
+            alt="" style="max-width: 520px; max-height: 480px;" >
+        </div>
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
           <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Earnings </h1>
           <p class="lead">golf tournaments have prize money so they can win prize money for finishing first, second,
@@ -195,15 +204,13 @@
             for a no name pro. if you're really good you'll have sponsorship deals.</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
 
-            <button type="button" class="btn btn-outline-danger btn-lg px-4" (click)="earnings()">View more</button>
+            <button type="button" class="btn btn-outline-danger btn-lg px-4"(click)="dynamicData('earnings')">View more</button>
           </div>
         </div>
-        <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
-          <img class="rounded-lg-3"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpnVqbviG7v8Jv39ES7LRMW0PVdXeW89wyYA&s" alt=""
-            width="520">
-        </div>
+    
       </div>
     </div>
   </section>
 </div>
+
+
