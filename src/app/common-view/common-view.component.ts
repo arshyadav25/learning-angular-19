@@ -13,6 +13,7 @@ import { ServiceService } from '../service.service';
 export class CommonViewComponent implements OnInit {
   type: any;
   data = [] as any
+  selectedValue: any;
 
   constructor(private route: ActivatedRoute, private service: ServiceService) {
     this.type = this.route.snapshot.queryParams['type'];
@@ -35,11 +36,11 @@ export class CommonViewComponent implements OnInit {
 
   getUrlByType(type: string): string | undefined {
     const urls: { [key: string]: string } = {
-      organizations: 'https://dummyjson.com/c/03b3-58e8-445b-a249',
+      FedExCup: 'https://dummyjson.com/c/b598-bdd6-4db6-93b6',
       schedules: 'https://dummyjson.com/c/93c3-8003-4dcf-8b69',
       players: 'https://dummyjson.com/c/7195-954a-4df2-bd21',
       tournaments: 'https://dummyjson.com/c/51e5-80c7-48dd-bbc4',
-      loaderboards: 'https://dummyjson.com/c/2f6b-3788-421d-9d24',
+      leaderboards: 'https://dummyjson.com/c/2f6b-3788-421d-9d24',
       scorecards: 'https://dummyjson.com/c/bb06-12ec-42f4-96ed',
       points: 'https://dummyjson.com/c/284f-8700-4deb-a189',
       earnings: 'https://dummyjson.com/c/4fd6-7990-4331-b3cb',
@@ -47,5 +48,9 @@ export class CommonViewComponent implements OnInit {
     };
 
     return urls[type];
+  }
+
+  onSelectionChange(event: any): void {
+    this.selectedValue = event.value;
   }
 }

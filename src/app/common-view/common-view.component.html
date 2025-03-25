@@ -1,6 +1,204 @@
-<!-- {{json | type.player}} -->
- <!-- {{this.data|json}} -->
+<!-- {{this.data|json}} -->
 
-<!-- <div *ngFor="let data of data">
-<div>{{data.firstName}}</div>
-</div> -->
+<div class="main" *ngIf="data.players">
+    <div class="container-fluid">
+        <div class="row pt-5 justify-content-center">
+            <div class="col-md-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.players">
+                <div class="col-12 ">
+                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
+
+                        <div class="d-flex justify-content-around">
+                            <p>PlayerId :</p>
+                            <p>{{data.playerId}} </p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>Player Name :</p>
+                            <p> {{data.firstName}} {{data.lastName}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>Course Id :</p>
+                            <p>{{data.courseId}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>IsAmateur :</p>
+                            <p> {{data.isAmateur}}</p>
+                        </div>
+                        <div>
+
+                            <p class="rank mb-o pb-2">{{data.status}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main" *ngIf="data.rankings  && data.name == 'Official World Golf Ranking' ">
+    <p>fyck</p>
+    <div class="container-fluid">
+        <div class="row pt-5 justify-content-center">
+
+            <div class="col-lg-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.rankings">
+                <div class="col-12 ">
+                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
+
+                        <div class="d-flex justify-content-around">
+                            <p>PlayerId :</p>
+                            <p>{{data.playerId}} </p>
+
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>AvgPoints :</p>
+                            <p> {{data.avgPoints}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>Name</p>
+                            <p>{{data.fullName}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>pointsGained :</p>
+                            <p class="text-success">{{data.pointsGained}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>pointsLost :</p>
+                            <p class="text-danger">{{data.pointsLost}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>PreviousRank :</p>
+                            <p> {{data.previousRank}}</p>
+                        </div>
+                        <p class="rank mb-o pb-2">{{data.rank}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main" *ngIf="data.rankings && data.name == 'FedExCup Standings'">
+    <div class="container-fluid">
+        <div class="row pt-5 justify-content-center">
+
+            <div class="col-lg-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.rankings">
+                <div class="col-12 ">
+                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
+
+                        <div class="d-flex justify-content-around">
+                            <p>PlayerId :</p>
+                            <p>{{data.playerId}} </p>
+
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>Top 10</p>
+                            <p> {{data.numTop10s}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>Name</p>
+                            <p>{{data.firstName}} {{data.lastName}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>Number Wins :</p>
+                            <p class="text-success">{{data.numWins}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>TotalPoints :</p>
+                            <p> {{data.totalPoints}}</p>
+                        </div>
+                        <p class="rank mb-o pb-2">{{data.rank}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main" *ngIf="data.schedule">
+    <div class="container-fluid">
+        <div class="row pt-5 justify-content-center">
+
+            <div class="col-lg-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.schedule">
+                <div class="col-12 ">
+                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
+
+                        <div class="d-flex justify-content-around">
+                            <p>FedexCupPoints :</p>
+                            <p>{{data.fedexCupPoints}} </p>
+
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>Purse</p>
+                            <p> {{data.purse}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>Name</p>
+                            <p>{{data.name}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>TournId :</p>
+                            <p> {{data.tournId}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>WinnersShare :</p>
+                            <p> {{data.winnersShare}}</p>
+                        </div>
+                        <p class="rank mb-o pb-2">{{data.format}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main" *ngIf="data.leaderboardRows">
+    <div class="container-fluid">
+        <div class="row pt-5 justify-content-center">
+
+            <div class="col-lg-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.leaderboardRows">
+                <div class="col-12 ">
+                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
+                        <div class="d-flex justify-content-around">
+                            <p>Position :</p>
+                            <p>{{data.position}} </p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>CourseId :</p>
+                            <p>{{data.courseId}} </p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>CurrentHole</p>
+                            <p> {{data.currentHole}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>Name</p>
+                            <p>{{data.firstName}} {{data.lastName}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>CurrentRoundScore :</p>
+                            <p> {{data.currentRoundScore}}</p>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>TeeTime :</p>
+                            <p> {{data.teeTime}}</p>
+                        </div>
+                        <p class="rank mb-o pb-2">{{data.teeTimeTimestamp}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main" *ngIf="data.leaderboard
+">
+    <div class="container-fluid">
+        <div class="row pt-5 justify-content-center">
+            <div class="col-lg-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.leaderboard
+            ">
+                <div class="col-12 ">
+                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
+                        <p class="rank mb-o pb-2">{{data.firstName}}{{data.lastName}}</p>
+                        <p class="rank mb-o pb-2">{{data.playerId}}</p>
+                        <p class="rank mb-o pb-2">{{data.points}} {{data.earnings}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
