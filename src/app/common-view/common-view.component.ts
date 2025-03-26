@@ -12,7 +12,10 @@ import { ServiceService } from '../service.service';
 })
 export class CommonViewComponent implements OnInit {
   type: any;
-  data = [] as any
+  data = [] as any;
+  sb: boolean = false;
+
+  // datas = [] as any
   selectedValue: any;
 
   constructor(private route: ActivatedRoute, private service: ServiceService) {
@@ -26,11 +29,21 @@ export class CommonViewComponent implements OnInit {
     this.service
       .getFunction(this.getUrlByType(this.type))
       .subscribe((res: any) => {
-        console.log(res);
-        this.data = res
-        console.log(this.data)
-      });
+        if (this.type == 'scorecards') {
+          this.sb = true;
+          res.forEach((item:any) => {
+            this.data = this.data.concat(Object.keys(item.holes).map(key => item.holes[key]));
+          });
 
+          console.log(res);
+        } 
+        
+        else {
+          this.data = res;
+        }
+        console.log(res);
+        console.log(this.data);
+      });
     //console.log(this.posts)
   }
 

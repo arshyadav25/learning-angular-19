@@ -1,63 +1,245 @@
-// Define some color variables
-$primary-bg: #f4f4f4;
-$card-bg: #ffffff;
-$text-color: #333;
-$card-shadow: rgba(0, 0, 0, 0.1);
-p{
-    margin-bottom: 0% !important;
+// Variables
+$primary-color: #2A2F38;
+$accent-color: #4CAF50;
+$text-primary: #f5f5f5;
+$background: #1A1E24;
+$card-radius: 12px;
+$transition-speed: 0.3s;
+$section-spacing: 3rem;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+@mixin card-hover {
+  transition: transform $transition-speed ease, box-shadow $transition-speed ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+}
 
-.main {
-    background-image: url("https://images.unsplash.com/photo-1535131749006-b7f58c99034b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z29sZnxlbnwwfHwwfHx8MA%3D%3D");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    background-attachment: fixed;
-    padding: 20px;
-    overflow: auto;
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 2s ease-out 1s, transform 2s ease-out 1s; 
+  }
+  .fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+// Base Styles
+.data-dashboard {
+  background: $background;
+  color: $text-primary;
+  min-height: 100vh;
+  padding: 2rem;
 
+  &.dark-mode {
+    $background: #0F1217;
+    $text-primary: #e0e0e0;
+    $primary-color: #1E2229;
+  }
+}
 
-    .container-fluid {
+.dashboard-section {
+  margin-bottom: $section-spacing;
 
-        .card {
-            background: $card-bg;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px $card-shadow;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            overflow: hidden;
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba($accent-color, 0.3);
+  }
+}
 
-            &:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            }
+.card-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
-            p {
-                color: $text-color;
-                font-size: 16px;
-                font-weight: 600;
+  &.compact {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
 
-                &.rank {
-                    font-size: 1.3rem;
-                    padding: 10px;
-                    border-radius: 10px;
-                    color: white;
-                    background: linear-gradient(45deg, #8fa08d, #67a777);
-                    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-                }
-            }
-        }
+.data-card {
+  background: $primary-color;
+  border-radius: $card-radius;
+  padding: 1.5rem;
+  @include card-hover;
+
+  .card-header {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba($text-primary, 0.1);
+  }
+
+  .player-avatar {
+    @include flex-center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: $accent-color;
+    font-weight: 600;
+    margin-right: 1rem;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.8rem 0;
+    font-size: 0.95rem;
+
+    .stat-value {
+      font-weight: 600;
+      color: $accent-color;
     }
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 0.8rem;
+    background: rgba($text-primary, 0.05);
+    border-radius: 8px;
+
+    i {
+      color: $accent-color;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 0.85rem;
+      color: rgba($text-primary, 0.7);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-value {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+  }
 }
 
+// Specific Card Types
+.player-card {
+  .player-meta {
+    .player-name {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    
+    .player-id {
+      color: rgba($text-primary, 0.6);
+      font-size: 0.9rem;
+    }
+  }
+}
 
-@media (max-width: 768px) {
-    .row {
-        flex-direction: column;
-        align-items: center;
+.ranking-card {
+  position: relative;
+  
+  .rank-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: $accent-color;
+    color: darken($accent-color, 40%);
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+}
 
+.score-card {
+  @include flex-center;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: $primary-color;
+  border-radius: $card-radius;
+  @include card-hover;
+
+  .hole-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    
+    .par-label {
+      color: rgba($text-primary, 0.7);
+    }
+  }
+
+  .score-display {
+    @include flex-center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+
+    .stroke-count {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .performance-indicator {
+      font-size: 1.2rem;
+      background: rgba($text-primary, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
       
+      &.under {
+        color: lighten($accent-color, 10%);
+        background: rgba($accent-color, 0.15);
+      }
     }
+  }
 }
 
+// Responsive Design
+@media (max-width: 768px) {
+  .data-dashboard {
+    padding: 1rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-section {
+    margin-bottom: 2rem;
+    
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Utilities
+.text-success { color: #4CAF50 !important; }
+.text-danger { color: #f44336 !important; }
+.positive { color: #4CAF50 !important; }
+.negative { color: #f44336 !important; }
+.stat-tag {
+  padding: 0.2rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  background: rgba($text-primary, 0.1);
+
+  &.amateur {
+    background: rgba(#2196F3, 0.15);
+    color: #2196F3;
+  }
+}

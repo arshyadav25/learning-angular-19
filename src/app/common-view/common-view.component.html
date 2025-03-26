@@ -1,204 +1,146 @@
-<!-- {{this.data|json}} -->
-
-<div class="main" *ngIf="data.players">
-    <div class="container-fluid">
-        <div class="row pt-5 justify-content-center">
-            <div class="col-md-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.players">
-                <div class="col-12 ">
-                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
-
-                        <div class="d-flex justify-content-around">
-                            <p>PlayerId :</p>
-                            <p>{{data.playerId}} </p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>Player Name :</p>
-                            <p> {{data.firstName}} {{data.lastName}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>Course Id :</p>
-                            <p>{{data.courseId}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>IsAmateur :</p>
-                            <p> {{data.isAmateur}}</p>
-                        </div>
-                        <div>
-
-                            <p class="rank mb-o pb-2">{{data.status}}</p>
-                        </div>
-                    </div>
-                </div>
+<!-- Combined Template -->
+<div class="data-dashboard pt-5 " >
+    <!-- Players Section -->
+    <section class="dashboard-section pt-5" *ngIf="data.players" >
+      <h2 class="section-title">Players Overview</h2>
+      <div class="card-grid">
+        <div class="data-card player-card" *ngFor="let player of data.players"  appScrollAnimation animationClass="fade-in-visible">
+          <div class="card-header" >
+            <div class="player-avatar">{{ player.firstName.charAt(0) }}{{ player.lastName.charAt(0) }}</div>
+            <div class="player-meta">
+              <h3 class="player-name">{{ player.firstName }} {{ player.lastName }}</h3>
+              <p class="player-id">ID: {{ player.playerId }}</p>
             </div>
-        </div>
-    </div>
-</div>
-<div class="main" *ngIf="data.rankings  && data.name == 'Official World Golf Ranking' ">
-    <p>fyck</p>
-    <div class="container-fluid">
-        <div class="row pt-5 justify-content-center">
-
-            <div class="col-lg-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.rankings">
-                <div class="col-12 ">
-                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
-
-                        <div class="d-flex justify-content-around">
-                            <p>PlayerId :</p>
-                            <p>{{data.playerId}} </p>
-
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>AvgPoints :</p>
-                            <p> {{data.avgPoints}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>Name</p>
-                            <p>{{data.fullName}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>pointsGained :</p>
-                            <p class="text-success">{{data.pointsGained}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>pointsLost :</p>
-                            <p class="text-danger">{{data.pointsLost}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>PreviousRank :</p>
-                            <p> {{data.previousRank}}</p>
-                        </div>
-                        <p class="rank mb-o pb-2">{{data.rank}}</p>
-                    </div>
-                </div>
+          </div>
+          <div class="card-body">
+            <div class="stat-row">
+              <span>Course ID</span>
+              <span class="stat-value">{{ player.courseId }}</span>
             </div>
-        </div>
-    </div>
-</div>
-<div class="main" *ngIf="data.rankings && data.name == 'FedExCup Standings'">
-    <div class="container-fluid">
-        <div class="row pt-5 justify-content-center">
-
-            <div class="col-lg-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.rankings">
-                <div class="col-12 ">
-                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
-
-                        <div class="d-flex justify-content-around">
-                            <p>PlayerId :</p>
-                            <p>{{data.playerId}} </p>
-
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>Top 10</p>
-                            <p> {{data.numTop10s}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>Name</p>
-                            <p>{{data.firstName}} {{data.lastName}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>Number Wins :</p>
-                            <p class="text-success">{{data.numWins}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>TotalPoints :</p>
-                            <p> {{data.totalPoints}}</p>
-                        </div>
-                        <p class="rank mb-o pb-2">{{data.rank}}</p>
-                    </div>
-                </div>
+            <div class="stat-row">
+              <span>Status</span>
+              <span class="stat-tag" [class.amateur]="player.isAmateur">{{ player.isAmateur ? 'Amateur' : 'Pro' }}</span>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-<div class="main" *ngIf="data.schedule">
-    <div class="container-fluid">
-        <div class="row pt-5 justify-content-center">
-
-            <div class="col-lg-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.schedule">
-                <div class="col-12 ">
-                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
-
-                        <div class="d-flex justify-content-around">
-                            <p>FedexCupPoints :</p>
-                            <p>{{data.fedexCupPoints}} </p>
-
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>Purse</p>
-                            <p> {{data.purse}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>Name</p>
-                            <p>{{data.name}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>TournId :</p>
-                            <p> {{data.tournId}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>WinnersShare :</p>
-                            <p> {{data.winnersShare}}</p>
-                        </div>
-                        <p class="rank mb-o pb-2">{{data.format}}</p>
-                    </div>
-                </div>
+      </div>
+    </section>
+  
+    <!-- Rankings Section -->
+    <section class="dashboard-section pt-5" *ngIf="data.rankings" >
+      <h2 class="section-title">{{ data.name }}</h2>
+      <div class="card-grid">
+        <div class="data-card ranking-card" *ngFor="let ranking of data.rankings; let i = index"  appScrollAnimation animationClass="fade-in-visible">
+          <div class="rank-badge">#{{ ranking.rank }}</div>
+          <div class="card-header">
+            <div class="player-info">
+              <h3 class="player-name">{{ ranking.fullName || ranking.firstName + ' ' + ranking.lastName }}</h3>
+              <p class="player-id">ID: {{ ranking.playerId }}</p>
             </div>
-        </div>
-    </div>
-</div>
-<div class="main" *ngIf="data.leaderboardRows">
-    <div class="container-fluid">
-        <div class="row pt-5 justify-content-center">
-
-            <div class="col-lg-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.leaderboardRows">
-                <div class="col-12 ">
-                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
-                        <div class="d-flex justify-content-around">
-                            <p>Position :</p>
-                            <p>{{data.position}} </p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>CourseId :</p>
-                            <p>{{data.courseId}} </p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>CurrentHole</p>
-                            <p> {{data.currentHole}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>Name</p>
-                            <p>{{data.firstName}} {{data.lastName}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>CurrentRoundScore :</p>
-                            <p> {{data.currentRoundScore}}</p>
-                        </div>
-                        <div class="d-flex justify-content-around">
-                            <p>TeeTime :</p>
-                            <p> {{data.teeTime}}</p>
-                        </div>
-                        <p class="rank mb-o pb-2">{{data.teeTimeTimestamp}}</p>
-                    </div>
-                </div>
+          </div>
+          <div class="card-body">
+            <div class="stats-grid">
+              <div class="stat-item" *ngIf="ranking.avgPoints">
+                <span class="stat-label">Avg Points</span>
+                <span class="stat-value">{{ ranking.avgPoints | number }}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">{{ data.name.includes('FedEx') ? 'Total Points' : 'Previous Rank' }}</span>
+                <span class="stat-value">{{ data.name.includes('FedEx') ? ranking.totalPoints : ranking.previousRank }}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">{{ data.name.includes('FedEx') ? 'Wins' : 'Points Change' }}</span>
+                <span class="stat-value" [class.positive]="ranking.pointsGained > 0" [class.negative]="ranking.pointsGained < 0">
+                  {{ data.name.includes('FedEx') ? ranking.numWins : (ranking.pointsGained | number) }}
+                </span>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-
-<div class="main" *ngIf="data.leaderboard
-">
-    <div class="container-fluid">
-        <div class="row pt-5 justify-content-center">
-            <div class="col-lg-4 pt-5 d-flex justify-content-center" *ngFor="let data of data.leaderboard
-            ">
-                <div class="col-12 ">
-                    <div class="card p-3 text-center d-flex flex-column gap-3   ">
-                        <p class="rank mb-o pb-2">{{data.firstName}}{{data.lastName}}</p>
-                        <p class="rank mb-o pb-2">{{data.playerId}}</p>
-                        <p class="rank mb-o pb-2">{{data.points}} {{data.earnings}}</p>
-                    </div>
-                </div>
+      </div>
+    </section>
+  
+    <!-- Schedule Section -->
+    <section class="dashboard-section pt-5" *ngIf="data.schedule">
+      <h2 class="section-title">Tournament Schedule</h2>
+      <div class="card-grid">
+        <div class="data-card schedule-card" *ngFor="let event of data.schedule"  appScrollAnimation animationClass="fade-in-visible">
+          <div class="card-header">
+            <h3 class="event-name">{{ event.name }}</h3>
+            <p class="event-id">Tournament ID: {{ event.tournId }}</p>
+          </div>
+          <div class="card-body">
+            <div class="stats-grid">
+              <div class="stat-item">
+                <i class="fas fa-coins"></i>
+                <span class="stat-label">Purse</span>
+                <span class="stat-value">{{ event.purse | currency }}</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-trophy"></i>
+                <span class="stat-label">Winner's Share</span>
+                <span class="stat-value">{{ event.winnersShare | currency }}</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-chart-line"></i>
+                <span class="stat-label">FedEx Points</span>
+                <span class="stat-value">{{ event.fedexCupPoints | number }}</span>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+    </section>
+  
+    <!-- Leaderboard Section -->
+    <section class="dashboard-section pt-5" *ngIf="data.leaderboardRows || data.leaderboard">
+      <h2 class="section-title">Live Leaderboard</h2>
+      <div class="card-grid">
+        <div class="data-card leaderboard-card" *ngFor="let entry of data.leaderboardRows || data.leaderboard" appScrollAnimation animationClass="fade-in-visible">
+          <div class="card-header">
+            <div class="position">{{ entry.position }}</div>
+            <div class="player-info">
+              <h3 class="player-name">{{ entry.firstName }} {{ entry.lastName }}</h3>
+              <p class="course-info">Course: {{ entry.courseId }} | Hole: {{ entry.currentHole }}</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-label">Round Score</span>
+                <span class="stat-value">{{ entry.currentRoundScore }}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Tee Time</span>
+                <span class="stat-value">{{ entry.teeTime | date:'shortTime' }}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">{{ entry.points ? 'Points' : 'Earnings' }}</span>
+                <span class="stat-value">{{ entry.points || entry.earnings | currency }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Scorecard Section -->
+    <section class="dashboard-section pt-5" *ngIf="sb">
+      <h2 class="section-title">Hole Performance</h2>
+      <div class="card-grid compact">
+        <div class="score-card" *ngFor="let score of data" appScrollAnimation animationClass="fade-in-visible">
+          <div class="hole-header">
+            <span class="hole-number">Hole {{ score.holeId }}</span>
+            <span class="par-label">Par {{ score.par }}</span>
+          </div>
+          <div class="score-display">
+            <div class="stroke-count">{{ score.holeScore }}</div>
+            <div class="performance-indicator" [class.under]="(score.holeScore - score.par) < 0">
+              
+            </div>
+          </div>
+      
+        </div>
+      </div>
+    </section>
+  </div>

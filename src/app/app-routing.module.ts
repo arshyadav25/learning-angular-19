@@ -5,11 +5,12 @@ import { CommonViewComponent } from './common-view/common-view.component';
 import { CommonComponent } from './common/common.component';
 
 const routes: Routes = [
- // {path: '', redirectTo: 'tournaments', pathMatch: 'full' },
- {path:'',component:TournamentsComponent},
+  {path:'tournaments',component:TournamentsComponent},
+  {path: '', redirectTo: 'tournaments', pathMatch: 'full' },
   //{path:'tournaments',component:TournamentsComponent},
   {path:'common',component:CommonViewComponent},
   {path:'common1',component:CommonComponent},
+
 ];
 
 @NgModule({

@@ -14,13 +14,16 @@ import { CommonComponent } from './common/common.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollAnimationDirective } from './scroll-animation.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     TournamentsComponent,
     CommonViewComponent,
-    CommonComponent
+    CommonComponent,
+    ScrollAnimationDirective
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule,
     MatStepperModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule
   ],
   providers: [

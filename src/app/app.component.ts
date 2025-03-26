@@ -5,14 +5,14 @@ import { ServiceService } from './service.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: false,
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   posts: any = [];
-  filteredposts: any = []
+  filteredposts: any = [];
 
   title = 'sport-golf';
-  constructor(private data: ServiceService) { }
+  constructor(private data: ServiceService) {}
 
   ngOnInit(): void {
     // this.getdata();
@@ -25,8 +25,5 @@ export class AppComponent implements OnInit {
     // this.points();
     // this.earnings();
     // this.tournaments();
-
   }
-
- 
 }
